@@ -1,4 +1,4 @@
-package lamdba;
+package reflect;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
