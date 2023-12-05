@@ -1,4 +1,4 @@
-package org.my.code.reflect;
+package org.my.code.utils;
 
 public class ReflectHelper {
 
