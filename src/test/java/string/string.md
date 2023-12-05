@@ -9,19 +9,21 @@
 == 比较的是两个String类型变量的引用，当两个String类型的变量只想同一个String对象（也就是同一个内内存地址）的时候，返回true，
 equals（）是对String对象封装的字符串内容进行比较，相同返回true，
 使用equals方法和其他值做比较的时候，可能会导致抛出空指针异常，下边就是equals的源码：
-``    public boolean equals(Object anObject) {
+```java 
+    public boolean equals(Object anObject) {
         if (this == anObject) {
-        return true;
+            return true;
         }
         if (anObject instanceof String) {
-        String aString = (String)anObject;
+            String aString = (String)anObject;
         if (coder() == aString.coder()) {
-        return isLatin1() ? StringLatin1.equals(value, aString.value)
-        : StringUTF16.equals(value, aString.value);
-        }
+            return isLatin1() ? StringLatin1.equals(value, aString.value)
+                : StringUTF16.equals(value, aString.value);
+            }
         }
         return false;
-    }``
+    }
+```
 这里使用的是 if (anObject instanceof String) 来判断传入的对象是否是String类型，如果不是直接返回false，
 所以有可能会有前边的对象为空的现象，所以在使用equals的时候，一定要先把确定不为空的放在前边，不确定的放在equals()里边
 “确定”。equals(“不确定”) 这样是可以的
