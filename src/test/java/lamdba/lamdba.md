@@ -1,3 +1,5 @@
+# lamdba
+```java
     //count
     public Long queryCount(String id) {
         Long count = mapper.selectCount(new LambdaQueryWrapper<Entity>().eq(Entity::getId, id));
@@ -34,3 +36,4 @@
     public boolean english(){
         return "en".equals(LocaleContextHolder.getLocale().getLanguage());
     }
+```
